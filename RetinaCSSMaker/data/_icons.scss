@@ -1,0 +1,200 @@
+@import '../partials/_custom-variables';
+@import '../vendors/bootstrap/mixins/_border-radius';
+
+.icn {
+    display: inline-block;
+    vertical-align:middle;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+    background-image: url('../images/sprite/1x/d-spr-global-1x.png');
+    background-repeat: no-repeat;
+    &.pull-right {
+        margin-right: 0;
+    }
+}
+// missing from final sprite
+.icn-caret {
+    width: 5px;
+    height: 12px;
+    background-image: url('../images/sprite-mobile/icn-right-arrow2x.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+// No longer used
+/*.icn-intel {
+    width: 30px;
+    height: 44px;
+    background-image: url('../images/sprite/icn-intel.png');
+    background-repeat: no-repeat;
+}*/
+
+.icn-dl {
+    width:63px;
+    background-position:-332px -31px;
+}
+
+.icn-play-xs,
+.icn-forum,
+.icn-support,
+.ui-state-default .ui-icon.icn-plus,
+.icn-plus,
+.ui-state-default .ui-icon.icn-minus,
+.icn-minus {
+    display: inline-block;
+    vertical-align:middle;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    background-position: -741px -31px;
+    background-image: url('../images/sprite/1x/d-spr-global-1x.png');
+}
+.ui-state-default .ui-icon.icn-plus,
+.icn-plus {
+    background-position: -741px 0;
+}
+.ui-state-default .ui-icon.icn-caret-up,
+.icn-caret-up,
+.ui-state-default .ui-icon.icn-caret-down,
+.icn-caret-down{
+    display:inline-block;
+    width:15px;
+    height:9px;
+    background-size:100% 100%;
+    background-image: url('../images/sprite/icn-caret-down.png');
+}
+// TODO update left blue icon with correct asset
+.icn-caret-left.blue,
+.icn-caret-right.blue{
+    width: 10px;
+    height: 14px;
+    vertical-align:text-top;
+    margin-top:2px;
+    background-position: -559px -107px;
+}
+.icn-caret-left.blue{
+    margin-left:0;
+}
+.ui-state-default .ui-icon.icn-caret-up,
+.icn-caret-up{
+    background-image: url('../images/sprite/icn-caret-up.png');
+}
+
+.icn-view-all-circle.down,
+.icn-view-all-circle.up{
+    width: 44px;
+    height: 44px;
+    background-position:-428px 0;
+}
+
+.icn-view-all-circle.up{
+    background-position:-477px 0;
+}
+
+.icn-close-sm.light{
+    width: 15px;
+    height: 15px;
+    background-position:center center;
+    background-image: url('../images/sprite/icn-close-sm-light.png');
+}
+
+.secondary {
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus,
+    &.ui-state-default .ui-icon.icn-minus,
+    .icn-minus {
+        border-color: $pink;
+        background-position: -741px -95px;
+    }
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus {
+        background-position: -774px -95px;
+    }
+}
+
+.light {
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus,
+    &.ui-state-default .ui-icon.icn-minus,
+    .icn-minus{
+        //background-image: url('../images/sprite/1x/d-spr-global-1x.png');
+        background-image: url('../images/sprite/icn-minus-white.png');
+        background-position: 0 0;
+        background-size: cover;
+    }
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus {
+        background-image: url('../images/sprite/icn-plus-white.png');
+    }
+}
+
+.icn-play-xs {
+    background-position: -712px -87px;
+}
+
+.icn-forum {
+    background-position: -679px -93px;
+}
+
+.icn-support {
+    background-position: -776px 0;
+}
+
+.icn-more {
+    background-image: url('../images/sprite/icn-more.gif');
+}
+
+.icn-prev {
+    cursor: pointer;
+    background-position: -648px -31px;
+    &.inactive {
+        background-position: -648px 0;
+    }
+}
+
+.icn-next {
+    cursor: pointer;
+    background-position: -679px -31px;
+    &.inactive {
+        background-position: -679px 0;
+    }
+}
+
+.icn-zoom {
+    width: 20px;
+    height: 22px;
+    background-position: -776px -57px;
+}
+
+.icn.flag{
+    width:30px;
+    height:20px;
+    background-repeat:none;
+    &.usa{
+        background: url('../images/sprite/icn-flag-usa.jpg');
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .icn.visible-xs {
+        display: inline-block!important;
+    }
+    .icn-caret-left.blue,
+    .icn-caret-right.gray{
+        width:7px;
+        height:10px;
+    }
+
+    .icn-view-all-circle.down,
+    .icn-view-all-circle.up{
+        width: 30px;
+        height: 30px;
+        background-image: url('../images/sprite-mobile/1x/m-spr-global-1x.png');
+        background-position:-149px -30px;
+    }
+    .icn-view-all-circle.up{
+        background-position:-184px -30px;
+    }
+}

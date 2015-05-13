@@ -1,0 +1,143 @@
+@import '../partials/_custom-variables';
+@import '../vendors/bootstrap/mixins/_border-radius';
+
+.icn {
+    &.pull-right {
+    }
+}
+// missing from final sprite
+.icn-caret {
+}
+// No longer used
+/*.icn-intel {
+}*/
+
+.icn-dl {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+}
+
+.icn-play-xs,
+.icn-forum,
+.icn-support,
+.ui-state-default .ui-icon.icn-plus,
+.icn-plus,
+.ui-state-default .ui-icon.icn-minus,
+.icn-minus {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+}
+.ui-state-default .ui-icon.icn-plus,
+.icn-plus {
+}
+.ui-state-default .ui-icon.icn-caret-up,
+.icn-caret-up,
+.ui-state-default .ui-icon.icn-caret-down,
+.icn-caret-down{
+}
+// TODO update left blue icon with correct asset
+.icn-caret-left.blue,
+.icn-caret-right.blue{
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+}
+.icn-caret-left.blue{
+}
+.ui-state-default .ui-icon.icn-caret-up,
+.icn-caret-up{
+}
+
+.icn-view-all-circle.down,
+.icn-view-all-circle.up{
+}
+
+.icn-view-all-circle.up{
+}
+
+.icn-close-sm.light{
+}
+
+.secondary {
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus,
+    &.ui-state-default .ui-icon.icn-minus,
+    .icn-minus {
+        background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+        background-size: 993px 123px;
+    }
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus {
+        background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+        background-size: 993px 123px;
+    }
+}
+
+.light {
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus,
+    &.ui-state-default .ui-icon.icn-minus,
+    .icn-minus{
+    }
+    &.ui-state-default .ui-icon.icn-plus,
+    .icn-plus {
+    }
+}
+
+.icn-play-xs {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+}
+
+.icn-forum {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+}
+
+.icn-support {
+}
+
+.icn-more {
+}
+
+.icn-prev {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+    &.inactive {
+    }
+}
+
+.icn-next {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+    &.inactive {
+    }
+}
+
+.icn-zoom {
+    background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+    background-size: 993px 123px;
+}
+
+.icn.flag{
+    &.usa{
+    }
+}
+
+
+    .icn.visible-xs {
+    }
+    .icn-caret-left.blue,
+    .icn-caret-right.gray{
+    }
+
+    .icn-view-all-circle.down,
+    .icn-view-all-circle.up{
+        background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+        background-size: 993px 123px;
+    }
+    .icn-view-all-circle.up{
+        background-image: url('/images/sprite/2x/d-spr-global-2x.png');
+        background-size: 993px 123px;
+    }
+}
+
