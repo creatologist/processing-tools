@@ -1,0 +1,10 @@
+NodeTitle,SizeValue,ExpandCSV,DataCSV,FullDataCSV,ModifiersCSV,DataQuery,NodeColor,ShowValue
+IPHONE 4S 16GB,4.1328,,prod-3785.data.csv,,prod-3785.mod.csv,,,0
+IPHONE 4S 32GB,4.303,,prod-3787.data.csv,,prod-3787.mod.csv,,,0
+IPHONE 4 8GB,3.9483,,prod-3788.data.csv,,prod-3788.mod.csv,,,0
+IPHONE 4 8GB Preowned,4.0787,,prod-3841.data.csv,,prod-3841.mod.csv,,,0
+IPHONE 4S 32GB  Preowned,4.4167,,prod-3842.data.csv,,prod-3842.mod.csv,,,0
+IPHONE 4S 16GB Preowned,4.0729,,prod-3843.data.csv,,prod-3843.mod.csv,,,0
+IPHONE 5 16GB,3.8367,,prod-3853.data.csv,,prod-3853.mod.csv,,,0
+IPHONE 5 64GB,3.9464,,prod-3854.data.csv,,prod-3854.mod.csv,,,0
+IPHONE 5 32GB,3.9915,,prod-3855.data.csv,,prod-3855.mod.csv,,,0

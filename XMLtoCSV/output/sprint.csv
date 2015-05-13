@@ -1,0 +1,4 @@
+NodeTitle,SizeValue,ExpandCSV,DataCSV,FullDataCSV,ModifiersCSV,DataQuery,NodeColor,ShowValue
+PDA/Smartphones,650.0,cat-0.csv,,,,,,0
+Feature Phones,320.0,cat-1.csv,,,,,,0
+Datacards/Tablets/Other,100.0,cat-2.csv,,,,,,0

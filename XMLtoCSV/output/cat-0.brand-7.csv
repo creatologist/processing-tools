@@ -1,0 +1,4 @@
+NodeTitle,SizeValue,ExpandCSV,DataCSV,FullDataCSV,ModifiersCSV,DataQuery,NodeColor,ShowValue
+Kyocera Echo,2.9813,,prod-3740.data.csv,,prod-3740.mod.csv,,,0
+Kyocera Milano,2.0923,,prod-3781.data.csv,,prod-3781.mod.csv,,,0
+Kyocera Rise,2.6882,,prod-3849.data.csv,,prod-3849.mod.csv,,,0

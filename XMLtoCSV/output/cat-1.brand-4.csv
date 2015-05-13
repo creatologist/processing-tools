@@ -1,0 +1,5 @@
+NodeTitle,SizeValue,ExpandCSV,DataCSV,FullDataCSV,ModifiersCSV,DataQuery,NodeColor,ShowValue
+Kyocera DuraMax,2.5089,,prod-3769.data.csv,,prod-3769.mod.csv,,,0
+Kyocera DuraCore,2.2093,,prod-3802.data.csv,,prod-3802.mod.csv,,,0
+Kyocera DuraPlus,2.96,,prod-3822.data.csv,,prod-3822.mod.csv,,,0
+Kyocera DuraXT,2.6047,,prod-3837.data.csv,,prod-3837.mod.csv,,,0
