@@ -1,10 +1,39 @@
-class ImageSequence {
+class ImageData {
+  public int x = 0;
+  public int y = 0;
+  public int width = 0;
+  public int height = 0;
+  public String name = "";
+  
+  ImageData(){};
+  ImageData( int x_, int y_, int width_, int height_ ){
+    _init( x_, y_, width_, height_, name );
+  };
+  
+  ImageData( int x_, int y_, int width_, int height_, String name_ ){
+    _init( x_, y_, width_, height_, name_ );
+  };
+  
+  void _init( int x_, int y_, int width_, int height_, String name_ ) {
+    this.x = x_;
+    this.y = y_;
+    this.width = width_;
+    this.height = height_;
+    this.name = name_;
+  };
+    
+    
+    
+}
+
+public class ImageSequence {
   
   String [] imagePaths;
   int totalImages;
   String name;
   boolean folder = false;
   PImage[] images;
+  String type = "animation";
   
   int maxWidth = 5000;
   
@@ -12,6 +41,7 @@ class ImageSequence {
   int totalRows;
   
   PGraphics outputPNG;
+  ImageData[] imageData;
   
   JSON json;
   
@@ -25,6 +55,8 @@ class ImageSequence {
   }
   
   void _init( String[] imagePaths_, String name_, boolean folder_ ) {
+    json = new JSON();
+    
     name = name_;
     imagePaths = imagePaths_;
     folder = folder_;
@@ -35,6 +67,7 @@ class ImageSequence {
     //println( "" );
     
     images = new PImage[ imagePaths.length ];
+    imageData = new ImageData[ imagePaths.length ];
     
     int pixel_x_min, pixel_x_max;
     int pixel_y_min, pixel_y_max;
@@ -147,7 +180,7 @@ class ImageSequence {
     int x = 0,
         y = 0;
     int max_w, max_h;
-    while ( row_count < totalRows ) {
+    while ( row_count < totalRows + 1 ) {
       x = 0;
       max_h = 0;
       for ( int i = 0; i < imagesPerRow; i++ ) {
@@ -167,8 +200,18 @@ class ImageSequence {
     
     outputPNG = createGraphics( max_width, max_height, JAVA2D );
     
-    savePNG( "output/spritesheet-" + name + ".png" );
+    savePNG( "output/spritesheets/" + name + ".png" );
+    //saveJSON( "output/json/" + name + ".json" );
     
+    //println( "this" );
+    //println( this );
+    
+    json.parse( this ).write( "output/json/" + name + ".json" );
+    
+  };
+  
+  ImageSequence get() {
+    return this;
   };
   
   //
@@ -182,13 +225,18 @@ class ImageSequence {
         y = 0;
     int max_w, max_h;
     int index;
-    while ( row_count < totalRows ) {
+    String new_name;
+    while ( row_count < totalRows + 1 ) {
       x = 0;
       max_h = 0;
       for ( int i = 0; i < imagesPerRow; i++ ) {
         index = (row_count*imagesPerRow)+i;
         if ( index < totalImages ) {
-          outputPNG.image( images[(row_count*imagesPerRow)+i], x, y );
+          //println( index );
+          new_name = imagePaths[ index ];
+          new_name = new_name.substring( 0, new_name.indexOf( "." ) );
+          imageData[index] = new ImageData( x, y, images[index].width, images[index].height, new_name );
+          outputPNG.image( images[index], x, y );
           x += images[index].width;
           if ( images[index].height > max_h ) max_h = images[index].height;
         }
