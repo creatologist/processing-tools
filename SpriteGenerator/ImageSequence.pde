@@ -39,7 +39,7 @@ public class ImageSequence {
   PImage[] images;
   String type = "frames";
   
-  int maxWidth = 5000;
+  int maxWidth = 6000;
   
   int imagesPerRow;
   int totalRows;
@@ -104,7 +104,8 @@ public class ImageSequence {
       for ( int y = 0, max_y = images[i].height; y < max_y; y++ ) {
         for ( int x = 0, max_x = images[i].width; x < max_x; x++ ) {
           // find used pixels
-          if ( images[i].pixels[ ( y * images[i].width ) + x ] != 0 ) {
+          //if ( y == 0 && x == 0 ) println( images[i].pixels[ ( y * images[i].width ) + x ] );
+          if ( images[i].pixels[ ( y * images[i].width ) + x ] != 0 && images[i].pixels[ ( y * images[i].width ) + x ] != 16777215 ) {
             if ( x < pixel_x_min ) pixel_x_min = x;
             if ( x > pixel_x_max ) pixel_x_max = x;
             if ( y < pixel_y_min ) pixel_y_min = y;

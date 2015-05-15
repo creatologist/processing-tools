@@ -161,14 +161,19 @@ void compile() {
       }
     }
     
-    println( "" );
-    println( "" );
-    println( "---------- root images ----------" );
-    imageSequences[imageSequenceCount] = new ImageSequence( rootImageList, "root" );
-    imageSequences[imageSequenceCount].type = "frames";
-    imageSequences[imageSequenceCount].createJSON();
     
-    imageSequenceCount++;
+    if ( rootImageList.length > 0 ) {
+      println( "" );
+      println( "" );
+      println( "---------- root images ----------" );
+    
+      imageSequences[imageSequenceCount] = new ImageSequence( rootImageList, "root" );
+      imageSequences[imageSequenceCount].type = "frames";
+      imageSequences[imageSequenceCount].createJSON();
+      
+      imageSequenceCount++;
+    }
+    
     
     if ( COMBINE_JSON ) {
       json = new JSON();
