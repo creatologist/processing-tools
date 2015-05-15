@@ -1,22 +1,26 @@
 class ImageData {
   public int x = 0;
   public int y = 0;
+  public int originalX = 0;
+  public int originalY = 0;
   public int width = 0;
   public int height = 0;
   public String name = "";
   
   ImageData(){};
-  ImageData( int x_, int y_, int width_, int height_ ){
-    _init( x_, y_, width_, height_, name );
+  ImageData( int x_, int y_, int originalX_, int originalY_, int width_, int height_ ){
+    _init( x_, y_, originalX_, originalY_, width_, height_, name );
   };
   
-  ImageData( int x_, int y_, int width_, int height_, String name_ ){
-    _init( x_, y_, width_, height_, name_ );
+  ImageData( int x_, int y_, int originalX_, int originalY_, int width_, int height_, String name_ ){
+    _init( x_, y_, originalX_, originalY_, width_, height_, name_ );
   };
   
-  void _init( int x_, int y_, int width_, int height_, String name_ ) {
+  void _init( int x_, int y_, int originalX_, int originalY_, int width_, int height_, String name_ ) {
     this.x = x_;
     this.y = y_;
+    this.originalX = originalX_;
+    this.originalY = originalY_;
     this.width = width_;
     this.height = height_;
     this.name = name_;
@@ -33,7 +37,7 @@ public class ImageSequence {
   String name;
   boolean folder = false;
   PImage[] images;
-  String type = "animation";
+  String type = "frames";
   
   int maxWidth = 5000;
   
@@ -58,6 +62,10 @@ public class ImageSequence {
     json = new JSON();
     
     name = name_;
+    if ( name.indexOf( "--animation" ) != -1 ) {
+      type = "animation";
+      name = name.substring( 0, name.indexOf( "--animation" ) );
+    }
     imagePaths = imagePaths_;
     folder = folder_;
     totalImages = imagePaths_.length;
@@ -77,8 +85,12 @@ public class ImageSequence {
       total_height = 0;
     
     for ( int i = 0, len = imagePaths.length; i < len; i++ ) {
-      if ( folder ) images[i] = loadImage( dataPath( name_ + "/" + imagePaths[i] ) );
-      else images[i] = loadImage( dataPath( imagePaths[i] ) );
+      if ( folder ) {
+        if ( type == "frames" ) images[i] = loadImage( dataPath( name + "/" + imagePaths[i] ) );
+        else images[i] = loadImage( dataPath( name + "--animation/" + imagePaths[i] ) );
+      } else {
+        images[i] = loadImage( dataPath( imagePaths[i] ) );
+      }
       
       pixel_x_min = images[i].width;
       pixel_x_max = 0;
@@ -104,6 +116,11 @@ public class ImageSequence {
       w = pixel_x_max - pixel_x_min;
       h = pixel_y_max - pixel_y_min;
       images[i] = images[i].get( pixel_x_min, pixel_y_min, w, h );
+      imageData[i] = new ImageData();
+      imageData[i].originalX = pixel_x_min;
+      imageData[i].originalY = pixel_y_min;
+      imageData[i].width = w;
+      imageData[i].height = h;
       
       total_width += w;
       total_height += h;
@@ -206,9 +223,17 @@ public class ImageSequence {
     //println( "this" );
     //println( this );
     
-    json.parse( this ).write( "output/json/" + name + ".json" );
+    
     
   };
+  
+  void createJSON() {
+    //this.type = type_;
+    json.write( "output/json/" + this.name + ".json" );
+    json.parse( this ).write( "output/json/" + name + ".json" );
+  };
+  
+  
   
   ImageSequence get() {
     return this;
@@ -235,7 +260,10 @@ public class ImageSequence {
           //println( index );
           new_name = imagePaths[ index ];
           new_name = new_name.substring( 0, new_name.indexOf( "." ) );
-          imageData[index] = new ImageData( x, y, images[index].width, images[index].height, new_name );
+          //imageData[index] = new ImageData( x, y, images[index].width, images[index].height, new_name );
+          imageData[index].name = new_name;
+          imageData[index].x = x;
+          imageData[index].y = y;
           outputPNG.image( images[index], x, y );
           x += images[index].width;
           if ( images[index].height > max_h ) max_h = images[index].height;
